@@ -53,7 +53,7 @@ def remove_magazin_from_database(id_magazin_delete_entry):
         except ValueError:
             messagebox.showerror("Error", "ID_magazin must be a valid integer")
             return
-        
+
         delete_query = "DELETE FROM magazine WHERE ID_magazin = %s"
         cursor.execute(delete_query, (id_magazin,))
 
@@ -67,7 +67,13 @@ def remove_magazin_from_database(id_magazin_delete_entry):
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
 
-def update_magazin_to_database(id_magazin_entry_update,nume_magazin_entry_update,locatie_magazin_entry_update,tip_magazin_entry_update):
+
+def update_magazin_to_database(
+    id_magazin_entry_update,
+    nume_magazin_entry_update,
+    locatie_magazin_entry_update,
+    tip_magazin_entry_update,
+):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
@@ -96,6 +102,29 @@ def update_magazin_to_database(id_magazin_entry_update,nume_magazin_entry_update
 
         print("Magazin modified from database")
         messagebox.showinfo("Success", "Magazin modified from database")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Error: {str(e)}")
+
+
+def view_magazin_from_database(tree):
+    try:
+        connection = connect_to_database()
+        cursor = connection.cursor()
+
+        select_query = "SELECT * FROM magazine"
+        cursor.execute(select_query)
+
+        rows = cursor.fetchall()
+
+        for item in tree.get_children():
+            tree.delete(item)
+
+        for row in rows:
+            tree.insert("", "end", values=row)
+
+        cursor.close()
+        connection.close()
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
