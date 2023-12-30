@@ -46,3 +46,29 @@ def add_tranzactie_to_database(id_tranzactie_entry,id_client_tranzactie_entry,id
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
+
+def remove_tranzactie_from_database(id_tranzactie_delete_entry):
+    try:
+        connection = connect_to_database()
+        cursor = connection.cursor()
+
+        id_tranzactie_str = id_tranzactie_delete_entry.get()
+
+        try:
+            id_tranzactie = int(id_tranzactie_str)
+        except ValueError:
+            messagebox.showerror("Error", "ID_magazin must be a valid integer")
+            return
+
+        delete_query = "DELETE FROM tranzactii WHERE ID_tranzactie = %s"
+        cursor.execute(delete_query, (id_tranzactie,))
+
+        connection.commit()
+        cursor.close()
+        connection.close()
+
+        print("Tranzactie removed from the database")
+        messagebox.showinfo("Success", "Tranzactie removed from the database")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Error: {str(e)}")

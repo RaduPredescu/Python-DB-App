@@ -13,7 +13,7 @@ from magazin_utils import (
     update_magazin_to_database,
     view_magazin_from_database,
 )
-from tranzactie_utils import add_tranzactie_to_database
+from tranzactie_utils import add_tranzactie_to_database,remove_tranzactie_from_database
 
 root = tk.Tk()
 root.title("Database App")
@@ -68,6 +68,9 @@ def update_magazin():
 
 def view_magazin():
     view_magazin_from_database(tree_magazin)
+
+def remove_tranzactie():
+    remove_tranzactie_from_database(id_tranzactie_delete_entry)
 
 def add_tranzactie():
     add_tranzactie_to_database(id_tranzactie_entry,id_client_tranzactie_entry,id_magazin_tranzactie_entry,suma_tranzactie_entry,data_tranzactie_entry)
@@ -256,4 +259,12 @@ data_tranzactie_entry.grid(row=23,column=1)
 add_button_tranzactie = Button(root,text="Add Tranzactie to Database",command=add_tranzactie)
 add_button_tranzactie.grid(row=24,column=1)
 
+
+#stergere tranzactie
+Label(root,text="ID_tranzactie to Remove: ").grid(row=25,column=0)
+id_tranzactie_delete_entry = Entry(root)
+id_tranzactie_delete_entry.grid(row=25,column=1)
+
+remove_button_tranzactie = Button(root,text="Remove Tranzactie from Database",command=remove_tranzactie)
+remove_button_tranzactie.grid(row=26,column=1)
 root.mainloop()
