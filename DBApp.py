@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import Label, Entry, Button
-from client_utils import add_client_to_database, remove_client_from_database
+from client_utils import add_client_to_database, remove_client_from_database,update_client_to_database
 
 root = tk.Tk()
 root.title("Database App")
@@ -17,6 +17,16 @@ def add_client():
         prenume_client_entry,
         cnp_client_entry,
         telefon_client_entry,
+    )
+
+
+def update_client():
+    update_client_to_database(
+        id_client_entry_update,
+        nume_client_entry_update,
+        prenume_client_entry_update,
+        cnp_client_entry_update,
+        telefon_client_entry_update,
     )
 
 
@@ -45,7 +55,6 @@ add_button = Button(root, text="Add Client to Database", command=add_client)
 add_button.grid(row=5, column=1)
 
 
-# Create and place labels, entry field, and button for removing
 Label(root, text="ID_client to Remove:").grid(row=6, column=0)
 id_client_delete_entry = Entry(root)
 id_client_delete_entry.grid(row=6, column=1)
@@ -53,5 +62,27 @@ id_client_delete_entry.grid(row=6, column=1)
 remove_button = Button(root, text="Remove Client from Database", command=remove_client)
 remove_button.grid(row=7, column=1)
 
-# # Start the main loop
+Label(root, text="ID_client to update: ").grid(row=0, column=2)
+id_client_entry_update = Entry(root)
+id_client_entry_update.grid(row=0, column=3)
+
+Label(root, text="Nume to update: ").grid(row=1, column=2)
+nume_client_entry_update = Entry(root)
+nume_client_entry_update.grid(row=1, column=3)
+
+Label(root, text="Prenume to update: ").grid(row=2, column=2)
+prenume_client_entry_update = Entry(root)
+prenume_client_entry_update.grid(row=2, column=3)
+
+Label(root, text="CNP to update: ").grid(row=3, column=2)
+cnp_client_entry_update = Entry(root)
+cnp_client_entry_update.grid(row=3, column=3)
+
+Label(root, text="Telefon to update: ").grid(row=4, column=2)
+telefon_client_entry_update = Entry(root)
+telefon_client_entry_update.grid(row=4, column=3)
+
+add_button = Button(root, text="Update client", command=update_client)
+add_button.grid(row=5, column=3)
+
 root.mainloop()
