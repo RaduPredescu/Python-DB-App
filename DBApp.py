@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import Label, Entry, Button,Listbox
 from client_utils import add_client_to_database, remove_client_from_database,update_client_to_database,view_client_from_database
 from tkinter import ttk
+from magazin_utils import add_magazin_to_database
+
 root = tk.Tk()
 root.title("Database App")
 
@@ -32,6 +34,9 @@ def update_client():
 def view_client():
     view_client_from_database(tree)
 
+def add_magazin():
+    add_magazin_to_database(id_magazin_entry,nume_magazin_entry,locatie_magazin_entry,tip_magazin_entry)
+
 
 #adaugare client
 Label(root, text="ID_client:").grid(row=0, column=0)
@@ -55,8 +60,8 @@ telefon_client_entry = Entry(root)
 telefon_client_entry.grid(row=4, column=1)
 
 
-add_button = Button(root, text="Add Client to Database", command=add_client)
-add_button.grid(row=5, column=1)
+add_button_client = Button(root, text="Add Client to Database", command=add_client)
+add_button_client.grid(row=5, column=1)
 
 
 #stergere client
@@ -64,8 +69,8 @@ Label(root, text="ID_client to Remove:").grid(row=6, column=0)
 id_client_delete_entry = Entry(root)
 id_client_delete_entry.grid(row=6, column=1)
 
-remove_button = Button(root, text="Remove Client from Database", command=remove_client)
-remove_button.grid(row=7, column=1)
+remove_button_client = Button(root, text="Remove Client from Database", command=remove_client)
+remove_button_client.grid(row=7, column=1)
 
 
 #update client
@@ -89,13 +94,13 @@ Label(root, text="Telefon to update: ").grid(row=4, column=2)
 telefon_client_entry_update = Entry(root)
 telefon_client_entry_update.grid(row=4, column=3)
 
-update_button = Button(root, text="Update client", command=update_client)
-update_button.grid(row=5, column=3)
+update_button_client = Button(root, text="Update client", command=update_client)
+update_button_client.grid(row=5, column=3)
 
 
 #vizualizare client
-update_button = Button(root, text="View client", command=view_client)
-update_button.grid(row=7, column=3)
+view_button_client = Button(root, text="View client", command=view_client)
+view_button_client.grid(row=7, column=3)
 
 tree = ttk.Treeview(root, columns=("ID_client", "Nume", "Prenume", "CNP", "Telefon"), show="headings", height=5)
 tree.grid(row=10, column=0, columnspan=5)
@@ -105,6 +110,28 @@ tree.heading("Nume", text="Nume")
 tree.heading("Prenume", text="Prenume")
 tree.heading("CNP", text="CNP")
 tree.heading("Telefon", text="Telefon")
+
+
+
+#adaugare magazin
+Label(root,text="ID_mazagin: ").grid(row=11,column=0)
+id_magazin_entry = Entry(root)
+id_magazin_entry.grid(row=11,column=1)
+
+Label(root,text="Nume magazin: ").grid(row=12,column=0)
+nume_magazin_entry = Entry(root)
+nume_magazin_entry.grid(row=12,column=1)
+
+Label(root,text="Locatie: ").grid(row=13,column=0)
+locatie_magazin_entry = Entry(root)
+locatie_magazin_entry.grid(row=13,column=1)
+
+Label(root,text="Tip produse: ").grid(row=14,column=0)
+tip_magazin_entry = Entry(root)
+tip_magazin_entry.grid(row=14,column=1)
+
+add_button_magazin= Button(root, text="Add magazin to Database", command=add_magazin)
+add_button_magazin.grid(row=15, column=1)
 
 
 root.mainloop()
