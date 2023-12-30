@@ -13,7 +13,11 @@ from magazin_utils import (
     update_magazin_to_database,
     view_magazin_from_database,
 )
-from tranzactie_utils import add_tranzactie_to_database,remove_tranzactie_from_database
+from tranzactie_utils import (
+    add_tranzactie_to_database,
+    remove_tranzactie_from_database,
+    update_tranzactie_to_database,
+)
 
 root = tk.Tk()
 root.title("Database App")
@@ -69,12 +73,29 @@ def update_magazin():
 def view_magazin():
     view_magazin_from_database(tree_magazin)
 
+
 def remove_tranzactie():
     remove_tranzactie_from_database(id_tranzactie_delete_entry)
 
-def add_tranzactie():
-    add_tranzactie_to_database(id_tranzactie_entry,id_client_tranzactie_entry,id_magazin_tranzactie_entry,suma_tranzactie_entry,data_tranzactie_entry)
 
+def add_tranzactie():
+    add_tranzactie_to_database(
+        id_tranzactie_entry,
+        id_client_tranzactie_entry,
+        id_magazin_tranzactie_entry,
+        suma_tranzactie_entry,
+        data_tranzactie_entry,
+    )
+
+
+def update_tranzactie():
+    update_tranzactie_to_database(
+        id_tranzactie_entry_update,
+        id_client_tranzactie_entry_update,
+        id_magazin_tranzactie_entry_update,
+        suma_tranzactie_entry_update,
+        data_tranzactie_entry_update,
+    )
 
 
 # adaugare client
@@ -158,8 +179,6 @@ tree_client.heading("CNP", text="CNP")
 tree_client.heading("Telefon", text="Telefon")
 
 
-
-
 # adaugare magazin
 Label(root, text="ID_magazin: ").grid(row=11, column=0)
 id_magazin_entry = Entry(root)
@@ -233,38 +252,69 @@ tree_magazin.heading("Locatie magazin", text="Locatie magazin")
 tree_magazin.heading("Tip magazin", text="Tip magazin")
 
 
-
-
-#adaugare tranzactie
-Label(root,text="ID_tranzactie: ").grid(row=19,column=0)
+# adaugare tranzactie
+Label(root, text="ID_tranzactie: ").grid(row=19, column=0)
 id_tranzactie_entry = Entry(root)
-id_tranzactie_entry.grid(row=19,column=1)
+id_tranzactie_entry.grid(row=19, column=1)
 
-Label(root,text="ID_client: ").grid(row=20,column=0)
+Label(root, text="ID_client for tranzactie: ").grid(row=20, column=0)
 id_client_tranzactie_entry = Entry(root)
-id_client_tranzactie_entry.grid(row=20,column=1)
+id_client_tranzactie_entry.grid(row=20, column=1)
 
-Label(root,text="ID_magazin: ").grid(row=21,column=0)
+Label(root, text="ID_magazin for tranzactie: ").grid(row=21, column=0)
 id_magazin_tranzactie_entry = Entry(root)
-id_magazin_tranzactie_entry.grid(row=21,column=1)
+id_magazin_tranzactie_entry.grid(row=21, column=1)
 
-Label(root,text="Suma tranzactie: ").grid(row=22,column=0)
+Label(root, text="Suma tranzactie: ").grid(row=22, column=0)
 suma_tranzactie_entry = Entry(root)
-suma_tranzactie_entry.grid(row=22,column=1)
+suma_tranzactie_entry.grid(row=22, column=1)
 
-Label(root,text="Data tranzactie: ").grid(row=23,column=0)
+Label(root, text="Data tranzactie: ").grid(row=23, column=0)
 data_tranzactie_entry = Entry(root)
-data_tranzactie_entry.grid(row=23,column=1)
+data_tranzactie_entry.grid(row=23, column=1)
 
-add_button_tranzactie = Button(root,text="Add Tranzactie to Database",command=add_tranzactie)
-add_button_tranzactie.grid(row=24,column=1)
+add_button_tranzactie = Button(
+    root, text="Add Tranzactie to Database", command=add_tranzactie
+)
+add_button_tranzactie.grid(row=24, column=1)
 
 
-#stergere tranzactie
-Label(root,text="ID_tranzactie to Remove: ").grid(row=25,column=0)
+# stergere tranzactie
+Label(root, text="ID_tranzactie to Remove: ").grid(row=25, column=0)
 id_tranzactie_delete_entry = Entry(root)
-id_tranzactie_delete_entry.grid(row=25,column=1)
+id_tranzactie_delete_entry.grid(row=25, column=1)
 
-remove_button_tranzactie = Button(root,text="Remove Tranzactie from Database",command=remove_tranzactie)
-remove_button_tranzactie.grid(row=26,column=1)
+remove_button_tranzactie = Button(
+    root, text="Remove Tranzactie from Database", command=remove_tranzactie
+)
+remove_button_tranzactie.grid(row=26, column=1)
+
+
+# update tranzactie
+Label(root, text="ID_tranzactie to Update: ").grid(row=19, column=2)
+id_tranzactie_entry_update = Entry(root)
+id_tranzactie_entry_update.grid(row=19, column=3)
+
+Label(root, text="ID_client for tranzactie to Update: ").grid(row=20, column=2)
+id_client_tranzactie_entry_update = Entry(root)
+id_client_tranzactie_entry_update.grid(row=20, column=3)
+
+Label(root, text="ID_magazin for tranzactie to Update: ").grid(row=21, column=2)
+id_magazin_tranzactie_entry_update = Entry(root)
+id_magazin_tranzactie_entry_update.grid(row=21, column=3)
+
+Label(root, text="Suma for tranzactie to Update: ").grid(row=22, column=2)
+suma_tranzactie_entry_update = Entry(root)
+suma_tranzactie_entry_update.grid(row=22, column=3)
+
+Label(root, text="Data for tranzactie to Update: ").grid(row=23, column=2)
+data_tranzactie_entry_update = Entry(root)
+data_tranzactie_entry_update.grid(row=23, column=3)
+
+update_button_tranzactie = Button(
+    root, text="Update Tranzactie to Database", command=update_tranzactie
+)
+update_button_tranzactie.grid(row=24, column=3)
+
+
 root.mainloop()
