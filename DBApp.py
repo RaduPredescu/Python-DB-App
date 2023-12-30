@@ -13,6 +13,7 @@ from magazin_utils import (
     update_magazin_to_database,
     view_magazin_from_database,
 )
+from tranzactie_utils import add_tranzactie_to_database
 
 root = tk.Tk()
 root.title("Database App")
@@ -67,6 +68,10 @@ def update_magazin():
 
 def view_magazin():
     view_magazin_from_database(tree_magazin)
+
+def add_tranzactie():
+    add_tranzactie_to_database(id_tranzactie_entry,id_client_tranzactie_entry,id_magazin_tranzactie_entry,suma_tranzactie_entry,data_tranzactie_entry)
+
 
 
 # adaugare client
@@ -150,6 +155,8 @@ tree_client.heading("CNP", text="CNP")
 tree_client.heading("Telefon", text="Telefon")
 
 
+
+
 # adaugare magazin
 Label(root, text="ID_magazin: ").grid(row=11, column=0)
 id_magazin_entry = Entry(root)
@@ -221,5 +228,32 @@ tree_magazin.heading("ID_magazin", text="ID_magazin")
 tree_magazin.heading("Nume magazin", text="Nume magazin")
 tree_magazin.heading("Locatie magazin", text="Locatie magazin")
 tree_magazin.heading("Tip magazin", text="Tip magazin")
+
+
+
+
+#adaugare tranzactie
+Label(root,text="ID_tranzactie: ").grid(row=19,column=0)
+id_tranzactie_entry = Entry(root)
+id_tranzactie_entry.grid(row=19,column=1)
+
+Label(root,text="ID_client: ").grid(row=20,column=0)
+id_client_tranzactie_entry = Entry(root)
+id_client_tranzactie_entry.grid(row=20,column=1)
+
+Label(root,text="ID_magazin: ").grid(row=21,column=0)
+id_magazin_tranzactie_entry = Entry(root)
+id_magazin_tranzactie_entry.grid(row=21,column=1)
+
+Label(root,text="Suma tranzactie: ").grid(row=22,column=0)
+suma_tranzactie_entry = Entry(root)
+suma_tranzactie_entry.grid(row=22,column=1)
+
+Label(root,text="Data tranzactie: ").grid(row=23,column=0)
+data_tranzactie_entry = Entry(root)
+data_tranzactie_entry.grid(row=23,column=1)
+
+add_button_tranzactie = Button(root,text="Add Tranzactie to Database",command=add_tranzactie)
+add_button_tranzactie.grid(row=24,column=1)
 
 root.mainloop()
