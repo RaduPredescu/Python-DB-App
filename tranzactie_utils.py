@@ -133,3 +133,26 @@ def update_tranzactie_to_database(
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
+
+
+def view_tranzactii_from_database(tree):
+    try:
+        connection = connect_to_database()
+        cursor = connection.cursor()
+
+        select_query = "SELECT * FROM tranzactii"
+        cursor.execute(select_query)
+
+        rows = cursor.fetchall()
+
+        for item in tree.get_children():
+            tree.delete(item)
+
+        for row in rows:
+            tree.insert("", "end", values=row)
+
+        cursor.close()
+        connection.close()
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Error: {str(e)}")

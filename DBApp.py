@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Label, Entry, Button, Listbox
+from tkinter import Label, Entry, Button
 from client_utils import (
     add_client_to_database,
     remove_client_from_database,
@@ -17,6 +17,7 @@ from tranzactie_utils import (
     add_tranzactie_to_database,
     remove_tranzactie_from_database,
     update_tranzactie_to_database,
+    view_tranzactii_from_database,
 )
 
 root = tk.Tk()
@@ -98,6 +99,10 @@ def update_tranzactie():
     )
 
 
+def view_tranzactii():
+    view_tranzactii_from_database(tree_tranzactie)
+
+
 # adaugare client
 Label(root, text="ID_client:").grid(row=0, column=0)
 id_client_entry = Entry(root)
@@ -156,19 +161,21 @@ Label(root, text="Telefon to update: ").grid(row=4, column=2)
 telefon_client_entry_update = Entry(root)
 telefon_client_entry_update.grid(row=4, column=3)
 
-update_button_client = Button(root, text="Update Client", command=update_client)
+update_button_client = Button(
+    root, text="Update Client to Database", command=update_client
+)
 update_button_client.grid(row=5, column=3)
 
 
 # vizualizare client
-view_button_client = Button(root, text="View Client", command=view_client)
+view_button_client = Button(root, text="View Clienti", command=view_client)
 view_button_client.grid(row=7, column=3)
 
 tree_client = ttk.Treeview(
     root,
     columns=("ID_client", "Nume", "Prenume", "CNP", "Telefon"),
     show="headings",
-    height=5,
+    height=3,
 )
 tree_client.grid(row=10, column=0, columnspan=5)
 
@@ -235,14 +242,14 @@ update_button_magazin.grid(row=15, column=3)
 
 
 # vizualizare magazin
-view_button_magazin = Button(root, text="View Magazin", command=view_magazin)
+view_button_magazin = Button(root, text="View Magazine", command=view_magazin)
 view_button_magazin.grid(row=17, column=3)
 
 tree_magazin = ttk.Treeview(
     root,
     columns=("ID_magazin", "Nume magazin", "Locatie magazin", "Tip magazin"),
     show="headings",
-    height=5,
+    height=3,
 )
 tree_magazin.grid(row=18, column=0, columnspan=5)
 
@@ -316,5 +323,29 @@ update_button_tranzactie = Button(
 )
 update_button_tranzactie.grid(row=24, column=3)
 
+
+# vizualizare tranzactii
+view_button_tranzactie = Button(root, text="View Tranzactii", command=view_tranzactii)
+view_button_tranzactie.grid(row=26, column=3)
+
+tree_tranzactie = ttk.Treeview(
+    root,
+    columns=(
+        "ID_tranzactie",
+        "ID_client",
+        "ID_magazin",
+        "suma_tranzactie",
+        "data_tranzactie",
+    ),
+    show="headings",
+    height=3,
+)
+tree_tranzactie.grid(row=27, column=0, columnspan=5)
+
+tree_tranzactie.heading("ID_tranzactie", text="ID_tranzactie")
+tree_tranzactie.heading("ID_client", text="ID_client")
+tree_tranzactie.heading("ID_magazin", text="ID_magazin")
+tree_tranzactie.heading("suma_tranzactie", text="suma_tranzactie")
+tree_tranzactie.heading("data_tranzactie", text="data_tranzactie")
 
 root.mainloop()
