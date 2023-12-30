@@ -1,5 +1,6 @@
 from connect import connect_to_database
 from tkinter import messagebox
+import tkinter as tk
 
 
 def add_client_to_database(
@@ -107,6 +108,29 @@ def update_client_to_database(
 
         print("Client modified from database")
         messagebox.showinfo("Success", "Client modified from database")
+
+    except Exception as e:
+        messagebox.showerror("Error", f"Error: {str(e)}")
+
+
+def view_client_from_database(tree):
+    try:
+        connection = connect_to_database()
+        cursor = connection.cursor()
+
+        select_query = "SELECT * FROM clienti"
+        cursor.execute(select_query)
+
+        rows = cursor.fetchall()
+
+        for item in tree.get_children():
+            tree.delete(item)
+
+        for row in rows:
+            tree.insert("", "end", values=row)
+
+        cursor.close()
+        connection.close()
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
