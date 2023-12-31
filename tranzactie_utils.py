@@ -49,7 +49,7 @@ def add_tranzactie_to_database(
         connection.close()
 
         print("Tranzactie added to the database")
-        messagebox.showinfo("Success", "Tranzactie added to the database")
+        messagebox.showinfo("Success", "Tranzactie adaugata!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -76,7 +76,7 @@ def remove_tranzactie_from_database(id_tranzactie_delete_entry):
         connection.close()
 
         print("Tranzactie removed from the database")
-        messagebox.showinfo("Success", "Tranzactie removed from the database")
+        messagebox.showinfo("Success", "Tranzactie stearsa!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -129,7 +129,7 @@ def update_tranzactie_to_database(
         connection.close()
 
         print("Tranzactie modified from database")
-        messagebox.showinfo("Success", "Tranzactie modified from database")
+        messagebox.showinfo("Success", "Tranzactie modificata!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -153,6 +153,8 @@ def view_tranzactii_from_database(tree):
 
         cursor.close()
         connection.close()
+        messagebox.showinfo("Success", "Tranzactii incarcate cu succes!")
+
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
