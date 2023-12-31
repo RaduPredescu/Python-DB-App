@@ -38,7 +38,7 @@ def add_client_to_database(
         connection.close()
 
         print("Client added to the database")
-        messagebox.showinfo("Success", "Client added to the database")
+        messagebox.showinfo("Success", "Client adaugat!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -66,7 +66,7 @@ def remove_client_from_database(id_client_delete_entry):
         connection.close()
 
         print("Client removed from the database")
-        messagebox.showinfo("Success", "Client removed from the database")
+        messagebox.showinfo("Success", "Client sters!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -107,7 +107,7 @@ def update_client_to_database(
         connection.close()
 
         print("Client modified from database")
-        messagebox.showinfo("Success", "Client modified from database")
+        messagebox.showinfo("Success", "Client modificat!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -131,6 +131,7 @@ def view_client_from_database(tree):
 
         cursor.close()
         connection.close()
+        messagebox.showinfo("Success", "Clienti incarcati cu succes!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")

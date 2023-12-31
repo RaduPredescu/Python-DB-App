@@ -35,7 +35,7 @@ def add_magazin_to_database(
         connection.close()
 
         print("Magazin added to the database")
-        messagebox.showinfo("Success", "Magazin added to the database")
+        messagebox.showinfo("Success", "Magazin adaugat!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -62,7 +62,7 @@ def remove_magazin_from_database(id_magazin_delete_entry):
         connection.close()
 
         print("Client removed from the database")
-        messagebox.showinfo("Success", "Client removed from the database")
+        messagebox.showinfo("Success", "Magazin sters!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -101,7 +101,7 @@ def update_magazin_to_database(
         connection.close()
 
         print("Magazin modified from database")
-        messagebox.showinfo("Success", "Magazin modified from database")
+        messagebox.showinfo("Success", "Magazin modificat!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
@@ -125,6 +125,7 @@ def view_magazin_from_database(tree):
 
         cursor.close()
         connection.close()
+        messagebox.showinfo("Success", "Magazine incarcate cu succes!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
