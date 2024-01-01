@@ -348,4 +348,6 @@ tree_tranzactie.heading("ID_magazin", text="ID_magazin")
 tree_tranzactie.heading("suma_tranzactie", text="suma_tranzactie")
 tree_tranzactie.heading("data_tranzactie", text="data_tranzactie")
 
+Label(root,text="Copyright © 2023 Radu Predescu").grid(row=28,column=10)
+
 root.mainloop()
