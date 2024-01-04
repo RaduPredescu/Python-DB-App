@@ -131,7 +131,6 @@ def view_client_from_database(tree):
 
         cursor.close()
         connection.close()
-        messagebox.showinfo("Success", "Clienti incarcati cu succes!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")

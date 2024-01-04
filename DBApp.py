@@ -125,7 +125,9 @@ telefon_client_entry = Entry(root)
 telefon_client_entry.grid(row=4, column=1)
 
 
-add_button_client = Button(root, text="Adaugare client in baza de date", command=add_client)
+add_button_client = Button(
+    root, text="Adaugare client in baza de date", command=add_client
+)
 add_button_client.grid(row=5, column=1)
 
 
@@ -177,6 +179,8 @@ tree_client = ttk.Treeview(
     show="headings",
     height=3,
 )
+view_client_from_database(tree_client)
+
 tree_client.grid(row=10, column=0, columnspan=5)
 
 tree_client.heading("ID_client", text="ID_client")
@@ -203,7 +207,9 @@ Label(root, text="Tip produse: ").grid(row=14, column=0)
 tip_magazin_entry = Entry(root)
 tip_magazin_entry.grid(row=14, column=1)
 
-add_button_magazin = Button(root, text="Adaugare magazin in baza de date", command=add_magazin)
+add_button_magazin = Button(
+    root, text="Adaugare magazin in baza de date", command=add_magazin
+)
 add_button_magazin.grid(row=15, column=1)
 
 
@@ -251,6 +257,7 @@ tree_magazin = ttk.Treeview(
     show="headings",
     height=3,
 )
+view_magazin_from_database(tree_magazin)
 tree_magazin.grid(row=18, column=0, columnspan=5)
 
 tree_magazin.heading("ID_magazin", text="ID_magazin")
@@ -340,6 +347,7 @@ tree_tranzactie = ttk.Treeview(
     show="headings",
     height=3,
 )
+view_tranzactii_from_database(tree_tranzactie)
 tree_tranzactie.grid(row=27, column=0, columnspan=5)
 
 tree_tranzactie.heading("ID_tranzactie", text="ID_tranzactie")
@@ -348,6 +356,6 @@ tree_tranzactie.heading("ID_magazin", text="ID_magazin")
 tree_tranzactie.heading("suma_tranzactie", text="suma_tranzactie")
 tree_tranzactie.heading("data_tranzactie", text="data_tranzactie")
 
-Label(root,text="Copyright © 2023 Radu Predescu").grid(row=28,column=10)
+Label(root, text="Copyright © 2023 Radu Predescu").grid(row=28, column=10)
 
 root.mainloop()

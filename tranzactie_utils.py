@@ -153,7 +153,6 @@ def view_tranzactii_from_database(tree):
 
         cursor.close()
         connection.close()
-        messagebox.showinfo("Success", "Tranzactii incarcate cu succes!")
 
 
     except Exception as e:

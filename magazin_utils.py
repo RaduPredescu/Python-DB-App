@@ -125,7 +125,6 @@ def view_magazin_from_database(tree):
 
         cursor.close()
         connection.close()
-        messagebox.showinfo("Success", "Magazine incarcate cu succes!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
