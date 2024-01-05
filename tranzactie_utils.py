@@ -48,7 +48,6 @@ def add_tranzactie_to_database(
         cursor.close()
         connection.close()
 
-        print("Tranzactie added to the database")
         messagebox.showinfo("Success", "Tranzactie adaugata!")
 
     except Exception as e:
@@ -75,7 +74,6 @@ def remove_tranzactie_from_database(id_tranzactie_delete_entry):
         cursor.close()
         connection.close()
 
-        print("Tranzactie removed from the database")
         messagebox.showinfo("Success", "Tranzactie stearsa!")
 
     except Exception as e:
@@ -128,7 +126,6 @@ def update_tranzactie_to_database(
         cursor.close()
         connection.close()
 
-        print("Tranzactie modified from database")
         messagebox.showinfo("Success", "Tranzactie modificata!")
 
     except Exception as e:

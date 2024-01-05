@@ -34,7 +34,6 @@ def add_magazin_to_database(
         cursor.close()
         connection.close()
 
-        print("Magazin added to the database")
         messagebox.showinfo("Success", "Magazin adaugat!")
 
     except Exception as e:
@@ -61,7 +60,6 @@ def remove_magazin_from_database(id_magazin_delete_entry):
         cursor.close()
         connection.close()
 
-        print("Client removed from the database")
         messagebox.showinfo("Success", "Magazin sters!")
 
     except Exception as e:
@@ -100,7 +98,6 @@ def update_magazin_to_database(
         cursor.close()
         connection.close()
 
-        print("Magazin modified from database")
         messagebox.showinfo("Success", "Magazin modificat!")
 
     except Exception as e:

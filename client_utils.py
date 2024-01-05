@@ -37,7 +37,6 @@ def add_client_to_database(
         cursor.close()
         connection.close()
 
-        print("Client added to the database")
         messagebox.showinfo("Success", "Client adaugat!")
 
     except Exception as e:
@@ -65,7 +64,6 @@ def remove_client_from_database(id_client_delete_entry):
         cursor.close()
         connection.close()
 
-        print("Client removed from the database")
         messagebox.showinfo("Success", "Client sters!")
 
     except Exception as e:
@@ -106,7 +104,6 @@ def update_client_to_database(
         cursor.close()
         connection.close()
 
-        print("Client modified from database")
         messagebox.showinfo("Success", "Client modificat!")
 
     except Exception as e:
