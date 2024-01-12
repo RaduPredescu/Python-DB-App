@@ -1,4 +1,5 @@
-username: root
-password: Mercedes22012002!
-database_name: proiect
-host: localhost
+client:
+  username: root
+  password: Mercedes22012002!
+  database_name: proiect
+  host: localhost

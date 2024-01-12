@@ -6,10 +6,10 @@ config = Config(params=params)
 
 
 def connect_to_database():
-    username = config.username
-    password = config.password
-    database_name = config.database_name
-    host = config.host
+    username = config.client.username
+    password = config.client.password
+    database_name = config.client.database_name
+    host = config.client.host
 
     # Connect to MySQL database
     connection = mysql.connector.connect(
