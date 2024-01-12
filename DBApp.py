@@ -19,6 +19,7 @@ from tranzactie_utils import (
     update_tranzactie_to_database,
     view_tranzactii_from_database,
 )
+from db_kill import drop_table
 
 root = tk.Tk()
 root.title("Database App")
@@ -98,10 +99,13 @@ def update_tranzactie():
         data_tranzactie_entry_update,
     )
 
-
 def view_tranzactii():
     view_tranzactii_from_database(tree_tranzactie)
 
+
+
+def kill():
+    drop_table()
 
 # adaugare client
 Label(root, text="ID_client:").grid(row=0, column=0)
@@ -357,5 +361,12 @@ tree_tranzactie.heading("suma_tranzactie", text="suma_tranzactie")
 tree_tranzactie.heading("data_tranzactie", text="data_tranzactie")
 
 Label(root, text="Copyright © 2023 Radu Predescu").grid(row=28, column=10)
+
+
+kill_button = Button(
+    root, text="Kill Database", command=kill, background='red'
+)
+kill_button.grid(row=1, column=7)
+
 
 root.mainloop()

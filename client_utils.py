@@ -1,6 +1,5 @@
 from connect import connect_to_database
 from tkinter import messagebox
-import tkinter as tk
 
 
 def add_client_to_database(
