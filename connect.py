@@ -8,7 +8,7 @@ config = Config(params=params)
 def connect_to_database():
     username = config.client.username
     password = config.client.password
-    database_name = config.client.database_name
+    database_name = config.database.database_name
     host = config.client.host
 
     # Connect to MySQL database
