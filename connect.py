@@ -1,5 +1,5 @@
 import mysql.connector
-from utils import Config,read_params
+from utils import Config, read_params
 
 params = read_params('config.yaml')
 config = Config(params=params)
