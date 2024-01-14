@@ -18,7 +18,7 @@ def drop_table(
         cursor.close()
         connection.close()
 
-        messagebox.showinfo("Success", "Baza de date daramata!")
+        messagebox.showinfo("Success", "Baza de date stearsa!")
 
     except Exception as e:
         messagebox.showerror("Error", f"Error: {str(e)}")
