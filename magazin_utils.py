@@ -20,7 +20,7 @@ def add_magazin_to_database(
         try:
             id_magazin = int(id_magazin_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_magazin must be a valid integer")
+            messagebox.showerror("Error", "ID trebuie sa fie numar natural")
             return
 
         insert_query = "INSERT INTO magazine (ID_magazin, nume_magazin, locatie, tip_produse) VALUES (%s, %s, %s, %s)"
@@ -50,7 +50,7 @@ def remove_magazin_from_database(id_magazin_delete_entry):
         try:
             id_magazin = int(id_magazin_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_magazin must be a valid integer")
+            messagebox.showerror("Error", "ID trebuie sa fie numar intreg")
             return
 
         delete_query = "DELETE FROM magazine WHERE ID_magazin = %s"
@@ -84,7 +84,7 @@ def update_magazin_to_database(
         try:
             id_magazin = int(id_magazin_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_client must be a valid integer")
+            messagebox.showerror("Error", "ID trebuie sa fie numar intreg!")
             return
 
         update_query = "UPDATE magazine SET nume_magazin = %s, locatie = %s, tip_produse = %s WHERE ID_magazin = %s"

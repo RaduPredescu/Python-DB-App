@@ -22,7 +22,7 @@ def add_client_to_database(
         try:
             id_client = int(id_client_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_client must be a valid integer")
+            messagebox.showerror("Error", "ID client trebuie sa fie numar intreg")
             return
 
         insert_query = "INSERT INTO clienti (ID_client, nume, prenume, cnp, numar_telefon) VALUES (%s, %s, %s, %s, %s)"
@@ -52,7 +52,7 @@ def remove_client_from_database(id_client_delete_entry):
         try:
             id_client = int(id_client_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_client must be a valid integer")
+            messagebox.showerror("Error", "ID client trebuie sa fie numar intreg")
             return
 
         delete_query = "DELETE FROM clienti WHERE ID_client = %s"
@@ -89,7 +89,7 @@ def update_client_to_database(
         try:
             id_client = int(id_client_str)
         except ValueError:
-            messagebox.showerror("Error", "ID_client must be a valid integer")
+            messagebox.showerror("Error", "ID client trebuie sa fie numar intreg")
             return
 
         update_query = "UPDATE clienti SET nume = %s, prenume = %s, cnp = %s, numar_telefon = %s WHERE ID_client = %s"

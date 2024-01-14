@@ -364,7 +364,7 @@ Label(root, text="Copyright © 2023 Radu Predescu").grid(row=28, column=10)
 
 
 kill_button = Button(
-    root, text="Kill Database", command=kill, background='red'
+    root, text="Kill Database(only for emergency)", command=kill, background='red'
 )
 kill_button.grid(row=1, column=7)
 
